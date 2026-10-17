@@ -1,0 +1,90 @@
+{
+  "common": {
+    "appName": "உரக் கடை கணக்கு",
+    "save": "சேமிக்கவும்",
+    "cancel": "ரத்து செய்",
+    "delete": "நீக்கு",
+    "edit": "திருத்து",
+    "search": "தேடுக...",
+    "confirm": "உறுதிப்படுத்து",
+    "yes": "ஆம்",
+    "no": "இல்லை",
+    "loading": "ஏற்றுகிறது...",
+    "date": "தேதி",
+    "amount": "தொகை",
+    "note": "குறிப்பு",
+    "status": "நிலை",
+    "active": "நடப்பில்",
+    "cancelled": "ரத்து செய்யப்பட்டது",
+    "phone": "தொலைபேசி",
+    "name": "பெயர்",
+    "village": "ஊர்",
+    "all": "அனைத்தும்",
+    "today": "இன்று"
+  },
+  "tabs": {
+    "home": "முகப்பு",
+    "sale": "புதிய விற்பனை",
+    "customers": "வாடிக்கையாளர்கள்",
+    "products": "பொருட்கள்",
+    "reports": "அறிக்கைகள்"
+  },
+  "home": {
+    "title": "கடை முகப்பு",
+    "todayCash": "இன்றைய ரொக்கம்",
+    "todayCredit": "இன்றைய கடன்",
+    "todayPayments": "வரவு பெற்ற தொகை",
+    "totalPending": "மொத்த பாக்கி",
+    "lowStock": "குறைந்த கையிருப்பு",
+    "overdueCustomers": "தவணை கடந்தவர்கள்"
+  },
+  "sale": {
+    "title": "புதிய விற்பனை",
+    "cashSale": "ரொக்க விற்பனை",
+    "creditSale": "கடன் விற்பனை",
+    "selectCustomer": "வாடிக்கையாளரைத் தேர்வு செய்",
+    "addItem": "பொருள் சேர்",
+    "product": "பொருள்",
+    "quantity": "அளவு",
+    "price": "விலை",
+    "total": "மொத்தத் தொகை",
+    "dueDate": "கடைசித் தேதி",
+    "saveSale": "விற்பனையை சேமிக்கவும்"
+  },
+  "customers": {
+    "title": "வாடிக்கையாளர்கள்",
+    "addCustomer": "புதிய வாடிக்கையாளர்",
+    "pendingBalance": "பாக்கி தொகை",
+    "advance": "முன்பணம்",
+    "creditLimit": "கடன் வரம்பு",
+    "ledger": "கணக்குப் புத்தகம்",
+    "addPayment": "வரவு வைக்கவும்",
+    "newBill": "புதிய கடன் பில்",
+    "whatsappBalance": "வாட்ஸ்அப் பாக்கி அனுப்பவும்",
+    "shareStatement": "கணக்கு அறிக்கை PDF"
+  },
+  "products": {
+    "title": "பொருட்கள் & இருப்பு",
+    "addProduct": "புதிய பொருள்",
+    "currentPrice": "தற்போதைய விலை",
+    "stock": "கையிருப்பு",
+    "updatePrice": "விலை மாற்றம்",
+    "priceHistory": "விலை வரலாறு",
+    "unit": "அளவீடு"
+  },
+  "reports": {
+    "title": "அறிக்கைகள்",
+    "daily": "தினசரி அறிக்கை",
+    "monthly": "மாதாந்திர அறிக்கை",
+    "exportCsv": "CSV ஏற்றுமதி"
+  },
+  "settings": {
+    "title": "அமைப்புகள்",
+    "shopName": "கடை பெயர்",
+    "shopPhone": "கடை தொலைபேசி",
+    "language": "மொழி",
+    "securityPin": "பாதுகாப்பு பின் (PIN)",
+    "backup": "காப்புப் பிரதி & ஏற்றுமதி",
+    "sync": "கிளவுட் ஒத்திசைவு"
+  }
+}

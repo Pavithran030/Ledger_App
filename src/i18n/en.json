@@ -1,0 +1,90 @@
+{
+  "common": {
+    "appName": "Fertilizer Ledger",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search...",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "loading": "Loading...",
+    "date": "Date",
+    "amount": "Amount",
+    "note": "Note",
+    "status": "Status",
+    "active": "Active",
+    "cancelled": "Cancelled",
+    "phone": "Phone",
+    "name": "Name",
+    "village": "Village",
+    "all": "All",
+    "today": "Today"
+  },
+  "tabs": {
+    "home": "Home",
+    "sale": "New Sale",
+    "customers": "Customers",
+    "products": "Products",
+    "reports": "Reports"
+  },
+  "home": {
+    "title": "Shop Dashboard",
+    "todayCash": "Today's Cash",
+    "todayCredit": "Today's Credit",
+    "todayPayments": "Payments Received",
+    "totalPending": "Total Pending Credit",
+    "lowStock": "Low Stock Items",
+    "overdueCustomers": "Overdue Accounts"
+  },
+  "sale": {
+    "title": "New Sale",
+    "cashSale": "Cash Sale",
+    "creditSale": "Credit Sale",
+    "selectCustomer": "Select Customer",
+    "addItem": "Add Item",
+    "product": "Product",
+    "quantity": "Quantity",
+    "price": "Price",
+    "total": "Total Amount",
+    "dueDate": "Due Date",
+    "saveSale": "Save & Complete Sale"
+  },
+  "customers": {
+    "title": "Customers",
+    "addCustomer": "Add Customer",
+    "pendingBalance": "Pending Balance",
+    "advance": "Advance",
+    "creditLimit": "Credit Limit",
+    "ledger": "Customer Ledger",
+    "addPayment": "Add Payment",
+    "newBill": "New Credit Bill",
+    "whatsappBalance": "Send WhatsApp Balance",
+    "shareStatement": "Share Statement PDF"
+  },
+  "products": {
+    "title": "Products & Stock",
+    "addProduct": "Add Product",
+    "currentPrice": "Current Price",
+    "stock": "Stock Available",
+    "updatePrice": "Update Price",
+    "priceHistory": "Price History",
+    "unit": "Unit"
+  },
+  "reports": {
+    "title": "Reports",
+    "daily": "Daily Summary",
+    "monthly": "Monthly Summary",
+    "exportCsv": "Export to CSV"
+  },
+  "settings": {
+    "title": "Settings",
+    "shopName": "Shop Name",
+    "shopPhone": "Shop Phone",
+    "language": "Language",
+    "securityPin": "Security PIN",
+    "backup": "Backup & Export",
+    "sync": "Cloud Sync"
+  }
+}

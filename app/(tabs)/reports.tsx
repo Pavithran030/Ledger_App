@@ -1,0 +1,16 @@
+import React from "react";
+import { View, Text } from "react-native";
+import { useTranslation } from "react-i18next";
+
+export default function ReportsScreen() {
+  const { t } = useTranslation();
+
+  return (
+    <View className="flex-1 items-center justify-center bg-slate-50 p-6">
+      <Text className="text-xl font-bold text-slate-800">{t("reports.title")}</Text>
+      <Text className="mt-2 text-center text-slate-500">
+        {t("reports.daily")} / {t("reports.monthly")} & {t("reports.exportCsv")}
+      </Text>
+    </View>
+  );
+}
