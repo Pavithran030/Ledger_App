@@ -1,8 +1,8 @@
-# Project: Fertilizer Shop Credit Ledger (Expo, TypeScript)
+# Project: Cattle Feed Mill Credit Ledger (Expo, TypeScript)
 
 ## Purpose
-Offline-first mobile app for a fertilizer shop owner. Cash sales, credit sales,
-customer part-payments, stock, reports, free WhatsApp sharing via wa.me links.
+Offline-first mobile app for a cattle feed mill owner. Cash sales, credit sales,
+customer part-payments, feed stock, reports, free WhatsApp sharing via wa.me links.
 
 ## Stack
 Expo (latest stable SDK), TypeScript strict, Expo Router, NativeWind, expo-sqlite,

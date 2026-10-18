@@ -1,0 +1,22 @@
+name: Supabase Free-Tier Keepalive
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Runs every Monday at 6:00 AM UTC
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase API
+        run: |
+          if [ -n "${{ secrets.EXPO_PUBLIC_SUPABASE_URL }}" ]; then
+            echo "Pinging Supabase to prevent project pause..."
+            curl -s -o /dev/null -w "%{http_code}" -X GET "${{ secrets.EXPO_PUBLIC_SUPABASE_URL }}/rest/v1/" \
+              -H "apikey: ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}" \
+              -H "Authorization: Bearer ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}"
+            echo "Ping complete."
+          else
+            echo "No Supabase secrets configured; skipping ping."
+          fi

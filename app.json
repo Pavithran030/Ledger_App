@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Fertilizer Ledger",
-    "slug": "fertilizer-shop-ledger",
+    "name": "Cattle Feed Ledger",
+    "slug": "cattle-feed-ledger",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "fertilizerledger",
+    "scheme": "cattlefeedledger",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true
@@ -17,7 +17,7 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "package": "com.fertilizershop.creditledger",
+      "package": "com.cattlefeed.creditledger",
       "predictiveBackGestureEnabled": false
     },
     "web": {
@@ -30,7 +30,13 @@
       "expo-localization",
       "expo-secure-store",
       "expo-sharing",
-      "expo-local-authentication"
+      "expo-local-authentication",
+      [
+        "expo-contacts",
+        {
+          "contactsPermission": "Allow Cattle Feed Ledger to access your contacts so you can add customers quickly."
+        }
+      ]
     ]
   }
 }

@@ -1,6 +1,6 @@
-# Fertilizer Shop Credit Ledger App — Full Development Plan (Expo)
+# Cattle Feed Mill Credit Ledger App — Full Development Plan (Expo)
 
-A mobile app for a fertilizer shop: cash sales, credit sales with price locked per bill, customer part-payments, stock, reports, and free WhatsApp sharing. Built only on free tiers and open-source tools.
+A mobile app for a cattle feed mill: cash sales, credit sales with price locked per bill, customer part-payments, feed stock, reports, and free WhatsApp sharing. Built only on free tiers and open-source tools.
 
 ---
 
@@ -13,7 +13,7 @@ A mobile app for a fertilizer shop: cash sales, credit sales with price locked p
 | Customers pay part amounts | Payments are separate entries that reduce balance. Advance shows as negative balance. |
 | Notebook is error-prone | Balance is always calculated, never typed. |
 | WhatsApp updates are manual | One-tap `wa.me` message with balance, recent bills and payments. Free. |
-| Poor network in shop | Offline-first. Local SQLite is the main database, cloud sync is a bonus. |
+| Poor network at the mill | Offline-first. Local SQLite is the main database, cloud sync is a bonus. |
 
 ---
 
@@ -164,7 +164,7 @@ SELECT price_paise FROM price_history
 WHERE product_id = ? AND effective_from <= ?
 ORDER BY effective_from DESC, created_at DESC LIMIT 1;
 
--- Customer balances (positive = customer owes shop)
+-- Customer balances (positive = customer owes mill)
 SELECT c.id, c.name, c.phone,
   COALESCE((SELECT SUM(total_paise) FROM bills
             WHERE customer_id = c.id AND type='credit' AND status='active'), 0)
@@ -233,7 +233,7 @@ AGENTS.md                # master context for the AI agent (Section 8)
    - Add Payment: amount, mode, date, note. Shows balance after payment. Offers receipt on WhatsApp.
 6. **Products:** list with current price and stock. Product page has **Update Price** (new price + effective date) and the full price history. Also stock purchase entry and adjustment.
 7. **Reports:** daily and monthly summary (cash, credit, payments, pending), pending customers list, product-wise sales, CSV export.
-8. **Settings:** shop name and phone (for message footer), language (English/Tamil), PIN, backup/export, sync status.
+8. **Settings:** mill name and phone (for message footer), language (English/Tamil), PIN, backup/export, sync status.
 
 ### UX rules
 
@@ -257,7 +257,7 @@ Balance message (English):
 
 ```
 Hello {name},
-Your pending amount at {shop}: ₹{balance}
+Your pending amount at {mill}: ₹{balance}
 
 Recent bills:
 {date} - Bill #{no} - ₹{amount}
@@ -270,7 +270,7 @@ Thank you.
 Payment receipt:
 
 ```
-Hello {name}, we received ₹{amount} on {date}. Your balance is now ₹{balance}. Thank you. - {shop}
+Hello {name}, we received ₹{amount} on {date}. Your balance is now ₹{balance}. Thank you. - {mill}
 ```
 
 Provide Tamil versions of both, chosen by a per-customer or global language setting.
@@ -280,10 +280,10 @@ Provide Tamil versions of both, chosen by a per-customer or global language sett
 ## 8. Master Context File for the AI Agent (save as `AGENTS.md` or `CLAUDE.md` in the project root)
 
 ```text
-# Project: Fertilizer Shop Credit Ledger (Expo, TypeScript)
+# Project: Cattle Feed Mill Credit Ledger (Expo, TypeScript)
 
 ## Purpose
-Offline-first mobile app for a fertilizer shop owner. Cash sales, credit sales,
+Offline-first mobile app for a cattle feed mill owner. Cash sales, credit sales,
 customer part-payments, stock, reports, free WhatsApp sharing via wa.me links.
 
 ## Stack
@@ -411,15 +411,15 @@ cancelled bill/payment excluded, running balance order is correct.
 
 ```text
 Implement src/services/whatsapp.ts: buildBalanceMessage(customer, balance,
-recentBills, recentPayments, shopSettings, language) and buildReceiptMessage,
+recentBills, recentPayments, millSettings, language) and buildReceiptMessage,
 using the templates in the plan (English and Tamil). openWhatsApp(phone, message)
 uses Linking.openURL with https://wa.me/<phone>?text=<encodeURIComponent>;
 handle failure with a friendly error. Add "Send balance on WhatsApp" to the
 customer page and "Send receipt" after adding a payment and after saving a
 credit bill. Implement src/services/pdf.ts to generate an HTML-to-PDF customer
-statement (shop name, customer, date range, ledger with running balance, final
+statement (mill name, customer, date range, ledger with running balance, final
 balance) with expo-print and share it with expo-sharing. Add a Settings screen
-with shop name, shop phone and language. Unit test the message builders
+with mill name, mill phone and language. Unit test the message builders
 (snapshot tests for both languages).
 ```
 
@@ -479,7 +479,7 @@ adaptive icon, splash), set version, and add eas.json with a "preview" profile
 that builds an Android APK. Provide step-by-step commands for: eas login,
 eas build --profile preview --platform android, and the free alternative of a
 local build (npx expo prebuild then ./gradlew assembleRelease or
-eas build --local). Write a README with install instructions for the shop
+eas build --local). Write a README with install instructions for the mill
 owner (how to install the APK, set PIN, first-time setup: add products with
 prices, add customers, opening balances). Add a feature "Opening balance" per
 customer that creates a special credit entry dated today, so existing notebook
@@ -530,9 +530,9 @@ and add a test that migrates a DB from the previous version.
 
 ## 11. Manual Test Checklist
 
-1. Add product "Urea" at ₹1,200. Add customer "Murugan" with 10-digit phone.
+1. Add feed item "Cattle Feed Pellets" at ₹1,200. Add customer "Murugan" with 10-digit phone.
 2. Credit sale: 5 bags to Murugan. Balance = ₹6,000. Stock reduced by 5.
-3. Change Urea price to ₹1,350. Open the old bill: still ₹1,200 per bag.
+3. Change Cattle Feed Pellets price to ₹1,350. Open the old bill: still ₹1,200 per bag.
 4. New credit sale of 2 bags: ₹2,700. Balance = ₹8,700.
 5. Add payment ₹3,000 (UPI). Balance = ₹5,700. Ledger running balance correct.
 6. Pay ₹6,000 more. Balance = −₹300 (advance), shown clearly.

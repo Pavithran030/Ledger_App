@@ -1,14 +1,29 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { useTranslation } from "react-i18next";
+import { useRouter, useLocalSearchParams } from "expo-router";
+import { PinPad } from "@/components/PinPad";
 
-export default function PinScreen() {
-  const { t } = useTranslation();
+/**
+ * Route wrapper for the PIN screen. All navigation lives here so that
+ * PinPad itself stays free of navigation hooks and can also be rendered
+ * as the root lock overlay (which has no navigation context).
+ */
+export default function PinRoute() {
+  const router = useRouter();
+  const { mode } = useLocalSearchParams<{ mode?: string }>();
+
+  const isChangeMode = mode === "change";
 
   return (
-    <View className="flex-1 items-center justify-center bg-slate-100 p-6">
-      <Text className="text-2xl font-bold text-slate-900">{t("settings.securityPin")}</Text>
-      <Text className="mt-2 text-slate-500">Enter 4-digit PIN</Text>
-    </View>
+    <PinPad
+      mode={isChangeMode ? "change" : undefined}
+      onSuccess={() => {
+        if (isChangeMode) {
+          router.back();
+        } else {
+          router.replace("/(tabs)");
+        }
+      }}
+      onCancel={() => router.back()}
+    />
   );
 }
